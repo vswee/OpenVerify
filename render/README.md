@@ -4,6 +4,8 @@ This service is the external processing backend for OpenVerify when the Cloudfla
 
 Render supports Docker-based web services and Blueprints through `render.yaml` at the repo root. This repository's blueprint deploys the repo-root `Dockerfile`, which copies `cloudflare/processor` into the image and starts the processor service.
 
+Current service URL: `https://openverify.onrender.com`
+
 ## Render setup
 
 - Service type: `web`
@@ -15,6 +17,7 @@ Render supports Docker-based web services and Blueprints through `render.yaml` a
 - Secret env var: `PROCESSOR_TOKEN`
 
 Render assigns the public service URL after deploy. Point the Worker at that URL with `PROCESSOR_URL` and reuse the same `PROCESSOR_TOKEN`.
+If `PROCESSOR_TOKEN` is missing, health checks will still pass but `/analyze` will return `401`.
 
 ## Local parity
 
@@ -29,7 +32,7 @@ docker run --rm -p 10000:10000 -e PROCESSOR_TOKEN=replace-me openverify-processo
 
 Set these values in the Cloudflare Worker environment:
 
-- `PROCESSOR_URL=https://<your-render-service>.onrender.com`
+- `PROCESSOR_URL=https://openverify.onrender.com`
 - `PROCESSOR_TOKEN=<same-secret-as-the-render-service>`
 
 If you use a custom domain on Render, point `PROCESSOR_URL` at that domain instead of the default `onrender.com` URL.
