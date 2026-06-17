@@ -367,7 +367,7 @@ The MVP should use a transparent weighted scoring model. The exact weights can b
 - **Hosting/deployment**: Cloudflare Pages + Cloudflare Workers.
 - **Server/API layer**: Cloudflare Workers or Pages Functions.
 - **Geo IP**: Flat18 Geo IP service.
-- **Image processing**: Cloudflare Worker-compatible pipeline where possible, with external processing worker if needed.
+- **Image processing**: Cloudflare Worker-compatible pipeline where possible, with external processing worker on a free Oracle VM if needed.
 - **OCR/document analysis**: Pluggable provider behind an internal interface.
 - **Face comparison**: Pluggable provider behind an internal interface.
 - **Webhook queue**: Supabase table-backed queue for MVP, later Cloudflare Queues.
@@ -410,7 +410,7 @@ Includes:
 - Geo IP lookup.
 - Score calculation.
 
-For MVP, this can be implemented inside the main API worker if the processing load and execution limits allow it. If not, use a separate Node-based worker service.
+For MVP, this can be implemented inside the main API worker if the processing load and execution limits allow it. If not, use a separate Node service on a free Oracle VM or similar low-cost container host.
 
 ---
 
@@ -1439,7 +1439,7 @@ Acceptance criteria:
 6. Implement verification session creation endpoint.
 7. Implement hosted verification flow shell.
 8. Implement R2 upload pipeline.
-9. Implement minimal processing pipeline with mocked OCR/face scoring.
+9. Implement minimal processing pipeline with mocked OCR/face scoring and keep the external processor deployable on Oracle Free Tier.
 10. Build admin verification list/detail/review queue.
 11. Add real OCR and face comparison provider.
 12. Add electoral register match and Geo IP score.
