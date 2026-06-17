@@ -692,7 +692,7 @@ Response:
 {
   "id": "verify_session_uuid",
   "status": "created",
-  "verification_url": "https://openverify.app/verify/verify_session_uuid?token=...",
+  "verification_url": "https://openverify.flat18.app/verify/verify_session_uuid?token=...",
   "expires_at": "2026-06-15T18:00:00Z"
 }
 ```
@@ -1141,7 +1141,7 @@ The public legal pages should be simple, readable, and versioned by effective da
 The admin dashboard should generate a snippet similar to:
 
 ```html
-<script src="https://openverify.app/embed.js" data-deployment-key="dep_public_xxx"></script>
+<script src="https://openverify.flat18.app/embed.js" data-deployment-key="dep_public_xxx"></script>
 <button id="openverify-start">Confirm your identification with OpenVerify</button>
 <script>
   OpenVerify.start({

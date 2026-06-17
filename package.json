@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy:cloudflare": "npm run build && wrangler deploy",
+    "deploy:cloudflare:dry": "npm run build && wrangler deploy --dry-run",
     "preview": "vite preview"
   },
   "keywords": [],

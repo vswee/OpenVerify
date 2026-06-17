@@ -7,11 +7,25 @@
     "nodejs_compat"
   ],
   "vars": {
-    "OPENVERIFY_BASE_URL": "https://openverify.app",
+    "OPENVERIFY_BASE_URL": "",
+    "PROCESSOR_URL": "",
     "R2_BUCKET": "open-verify",
     "SESSION_TTL_SECONDS": "900",
     "SUPABASE_URL": "https://cpryvrcfmibovapbjrkv.supabase.co"
   },
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "routes": [
+    {
+      "pattern": "openverify.flat18.app",
+      "custom_domain": true
+    }
+  ],
   "migrations": [
     {
       "tag": "v1",

@@ -849,7 +849,7 @@ function DeploymentsPage({ navigate, deployment }: { navigate: (path: string) =>
               <div className="snippet-card">
                 <div className="snippet-header">
                   <strong>Hosted flow URL</strong>
-                  <CopyButton text={`https://openverify.app/verify/${hostedFlowId}`} label="Copy link" />
+                  <CopyButton text={new URL(`/verify/${hostedFlowId}`, window.location.origin).toString()} label="Copy link" />
                 </div>
                 <pre>{`POST /api/v1/verification-sessions\nAuthorization: Bearer ${deployment.publicKey}\n\n{\n  "deployment_key": "${deployment.publicKey}",\n  "external_reference": "ref-1001",\n  "subject_email": "person@example.com"\n}`}</pre>
               </div>
