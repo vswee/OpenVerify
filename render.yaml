@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: openverify-processor
+    plan: free
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: PROCESSOR_TOKEN
+        sync: false

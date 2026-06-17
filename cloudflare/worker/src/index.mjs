@@ -555,7 +555,7 @@ export default {
         service: "openverify-api",
         supabaseConfigured: Boolean(env.SUPABASE_URL && env.SUPABASE_SERVICE_ROLE_KEY),
         processorConfigured: Boolean(env.PROCESSOR_URL),
-        processingMode: env.PROCESSOR_URL ? "oracle-http" : "local",
+        processingMode: env.PROCESSOR_URL ? "remote-http" : "local",
         r2Bound: Boolean(env.ASSETS),
       });
     }

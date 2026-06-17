@@ -5,7 +5,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=10000
 
-COPY . ./
+COPY cloudflare/processor ./cloudflare/processor
+
+WORKDIR /app/cloudflare/processor
 
 EXPOSE 10000
 

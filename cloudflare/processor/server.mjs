@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { timingSafeEqual } from "node:crypto";
 import { buildAnalysis } from "./src/analyze.mjs";
 
-const PORT = Number(process.env.PORT ?? 8080);
+const PORT = Number(process.env.PORT ?? 10000);
 const PROCESSOR_TOKEN = typeof process.env.PROCESSOR_TOKEN === "string" ? process.env.PROCESSOR_TOKEN.trim() : "";
 
 function json(res, statusCode, payload) {
@@ -67,7 +67,7 @@ const server = createServer(async (request, response) => {
       runtime: "node",
       provider: "openverify-node",
       port: PORT,
-      mode: "container",
+      mode: "docker",
       authRequired: Boolean(PROCESSOR_TOKEN),
     });
     return;
